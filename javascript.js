@@ -1,5 +1,3 @@
-let humanScore = 0;
-let computerScore = 0;
 //Get the computers choice and return it.
 function getComputerChoice(){
     let choice = Math.random() * 100;
@@ -34,3 +32,62 @@ function getHumanChoice(){
         getHumanChoice();
     }
 }
+
+//create and initialize score varibles.
+let humanScore = 0;
+let computerScore = 0;
+
+//Sets the winner for one round of the game.
+function playRound(humanChoice, computerChoice){
+    switch(humanChoice){
+        case "Rock":
+            if(computerChoice === "Scissors"){
+                console.log("You win. Rock beats Scissors.");
+                ++humanScore;
+            }
+            else if(computerChoice === "Paper"){
+                console.log("You lose. Paper beats Rock.");
+                ++computerScore;
+            }
+            else{
+                console.log("Tie");
+            }
+        break;
+
+        case "Paper":
+            if(computerChoice === "Scissors"){
+                console.log("You lose. Scissors beats Paper.");
+                ++computerScore;
+            }
+            else if(computerChoice === "Rock"){
+                console.log("You win. Paper beats Rock.");
+                ++humanScore;
+            }
+            else{
+                console.log("Tie");
+            }
+        break;
+
+        case "Scissors":
+            if(computerChoice === "Paper"){
+                console.log("You win. Scissors beats Paper.");
+                ++humanScore;
+            }
+            else if(computerChoice === "Rock"){
+                console.log("You lose. Rock beats Scissors.");
+                ++computerScore;
+            }
+            else{
+                console.log("Tie");
+            }
+        break;
+
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+console.log("Human score: " + humanScore);
+console.log("Computer score: " + computerScore);
