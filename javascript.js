@@ -16,15 +16,12 @@ function getHumanChoice(){
     let choice = prompt("Rock, Paper, or Scissors");
     choice = choice.toLowerCase();
     if(choice === "rock"){
-        console.log("Human Rock");
         return("Rock");
     }
     else if(choice === "paper"){
-        console.log("Human Paper");
         return("Paper");
     }
     else if(choice === "scissors"){
-        console.log("Human Scissors");
         return("Scissors")
     }
     else{
@@ -33,9 +30,7 @@ function getHumanChoice(){
     }
 }
 
-//create and initialize score varibles.
-let humanScore = 0;
-let computerScore = 0;
+
 
 //Sets the winner for one round of the game.
 function playRound(humanChoice, computerChoice){
@@ -85,9 +80,24 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame(){
+    
+    for(let i = 0; i < 5; i++){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+    if(humanScore > computerScore){
+        console.log("Human Wins! Human: " + humanScore + " Computer: " + computerScore);
+    }
+    else if(computerScore > humanScore){
+        console.log("Computer Wins! Computer: " + computerScore + " Human: " + humanScore);
+    }
+    else{
+        console.log("TIE Computer: " + computerScore + " Human: " + humanScore);
+    }   
+}
 
-playRound(humanSelection, computerSelection);
-console.log("Human score: " + humanScore);
-console.log("Computer score: " + computerScore);
+let humanScore = 0;
+let computerScore = 0;
+playGame();
