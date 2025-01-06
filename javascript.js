@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+//Get the computers choice and return it.
 function getComputerChoice(){
     let choice = Math.random() * 100;
     if (choice <= 33 && choice > 0){
@@ -10,7 +13,7 @@ function getComputerChoice(){
         return "Scissors";
     }
 }
-
+//Get the humans choice and return it.
 function getHumanChoice(){
     let choice = prompt("Rock, Paper, or Scissors");
     choice = choice.toLowerCase();
@@ -31,5 +34,3 @@ function getHumanChoice(){
         getHumanChoice();
     }
 }
-
-getHumanChoice();
